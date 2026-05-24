@@ -9,6 +9,12 @@ Para executar os notebooks siga os passos abaixo.
 2. Dentro da pasta **"Colab Notebooks"** crie a pasta **"SRI"** para armazenar e executar os notebooks das atividades práticas da disciplina.
 3. Dentro da pasta **"SRI"** crie a pasta **"data"** e coloque o arquivo de dados [**documentos.csv**](https://github.com/osmarbraz/sri/blob/main/data/documentos.csv). Este arquivo é o conjunto de dados utilizados na prática. Cada linha do arquivo é formato por `["id","documento"]`.
 
+Se você quiser usar outro conjunto de dados, coloque o arquivo de entrada como `data/train.json` e execute primeiro o notebook [**0_0_PrepararDocumentosCSV_trainjson_v1.ipynb**](https://github.com/osmarbraz/sri/blob/main/0_0_PrepararDocumentosCSV_trainjson_v1.ipynb). Ele lê `train.json`, extrai o campo `title`, gera `data/documentos.csv` com as colunas `id` e `documento`, limita a saída a 500 registros e garante no máximo 512 tokens por documento.
+
+O arquivo `data/train.json` pode ficar apenas no seu ambiente local. Ele não precisa ser versionado no repositório, porque o notebook 0_0 serve justamente para transformar esse arquivo de entrada em `documentos.csv` quando você tiver um dataset próprio para análise.
+
+Mais detalhes sobre o formato esperado dos arquivos de dados estão em [data/README.md](data/README.md).
+
 Posteriormente os notebooks podem ser executados em ordem sequencial conforme a figura a seguir.
 
 ![Fluxo de execução dos notebooks](fluxo_execucao_notebooks.png)
@@ -16,6 +22,9 @@ Posteriormente os notebooks podem ser executados em ordem sequencial conforme a 
 [Apresentação do fluxo de uso dos notebooks e fluxo geral de manipulação de arquivos no Colab.](https://docs.google.com/presentation/d/1W5TRri89JVVyQVGz9IOeQIa9jk186w4c/edit#slide=id.gf4978a6ef2_0_24)
 
 ## Notebooks
+
+0. **Preparação de dados**
+	- 0.0. [**PrepararDocumentosCSV_trainjson_v1.ipynb**](https://github.com/osmarbraz/sri/blob/main/0_0_PrepararDocumentosCSV_trainjson_v1.ipynb) - Lê `data/train.json` e gera `data/documentos.csv` para uso nos notebooks seguintes.
 
 1. **Pré-processamento**
 	- 1.1. [**Segmentacao_Limpeza_v1.ipynb**](https://github.com/osmarbraz/sri/blob/main/1_1_Segmentacao_Limpeza_v1.ipynb) - Realiza a limpeza e segmentação dos documentos.
@@ -50,6 +59,8 @@ https://projector.tensorflow.org/?config=https://raw.githubusercontent.com/osmar
 
 ## Conjunto de dados
 O conjunto de dados utilizado pelos notebooks é formado por 20 documentos extraído do conjunto de dados CSTNews. 
+
+Para reproduzir essa base a partir de um arquivo próprio, use o notebook 0_0 com um `train.json` que tenha uma lista de objetos com o campo `title`. O notebook também aceita um dicionário com a chave `train` ou outros formatos equivalentes em dicionário, mas o campo `title` é o que vira a coluna `documento` no CSV final.
 
 * [**documentos.csv**](https://github.com/osmarbraz/sri/blob/main/data/documentos.csv)
 
