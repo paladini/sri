@@ -20,4 +20,5 @@ tokenizers>=0.21,<0.22
 
 # Deep learning backends used by the notebooks
 torch
-tensorflow
+# TensorFlow is not available for Python 3.14 on Windows in this environment.
+tensorflow; python_version < "3.14"
