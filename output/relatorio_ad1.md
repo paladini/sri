@@ -6,6 +6,8 @@
 
 Link do repositório pessoal no GitHub: [https://github.com/paladini/sri](https://github.com/paladini/sri)
 
+Pasta de saída com o relatório e artefatos gerados: [`output/`](./)
+
 ## Execução dos notebooks
 
 Antes da sequência principal da avaliação, foi criado o notebook `0_0_PrepararDocumentosCSV_trainjson_v1.ipynb`. Esse notebook adapta o dataset escolhido para o formato de entrada esperado pelos notebooks disponibilizados pelo professor, gerando o arquivo `data/documentos.csv` com as colunas `id` e `documento`.
@@ -17,7 +19,7 @@ Os notebooks disponibilizados pelo professor foram executados em 24/05/2026, a p
 3. `1_3_NER_spaCy_v1.ipynb`
 4. `2_1_AnaliseDados_v1.ipynb`
 
-Os arquivos gerados ficam na pasta `data/`. Os novos arquivos adicionados ao repositório foram:
+Os arquivos de dados gerados pelos notebooks ficam na pasta `data/`. Os relatórios, imagens e exports ficam centralizados na pasta [`output/`](./). Os principais arquivos adicionados ao repositório foram:
 
 | Arquivo | Descrição |
 |---|---|
@@ -25,10 +27,11 @@ Os arquivos gerados ficam na pasta `data/`. Os novos arquivos adicionados ao rep
 | `data/dataset.csv` | Documentos limpos e segmentados em sentenças. |
 | `data/datasetpos.csv` | Saída de POS Tagging gerada com spaCy. |
 | `data/datasetner.csv` | Saída de NER gerada com spaCy. |
-| `relatorio_ad1_export/2_1_AnaliseDados_v1.md` | Export completo do notebook de análise com tabelas e gráficos. |
-| `relatorio_ad1_export/2_1_AnaliseDados_v1_files/` | Imagens PNG geradas pelo notebook de análise. |
+| `output/relatorio_ad1.md` | Relatório principal da Avaliação à Distância 1. |
+| `output/relatorio_ad1_export/2_1_AnaliseDados_v1.md` | Export completo do notebook de análise com tabelas e gráficos. |
+| `output/relatorio_ad1_export/2_1_AnaliseDados_v1_files/` | Imagens PNG geradas pelo notebook de análise. |
 
-Além deste documento de relatório da Avaliação à Distância 1.
+Essa organização mantém a raiz do repositório semelhante ao SRI original, com notebooks na raiz e a pasta `data/` com os arquivos processados, enquanto os materiais finais de entrega ficam agrupados em `output/`.
 
 ## Descrição do texto utilizado
 
@@ -147,90 +150,193 @@ As tabelas completas exportadas diretamente do notebook estão em [`relatorio_ad
 
 ## Gráficos gerados pelo notebook de análise
 
+Todos os gráficos abaixo foram gerados pelo notebook `2_1_AnaliseDados_v1.ipynb`, a partir dos arquivos `data/dataset.csv`, `data/datasetpos.csv` e `data/datasetner.csv`.
+
 ### Por documento
 
 ![Boxplot das estatísticas gerais por documento](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_122_2.png)
 
+Este boxplot resume as medidas gerais por documento, como quantidade de sentenças, palavras, tokens BERT, palavras sem stopwords, verbos, substantivos e entidades. A maior parte dos documentos é curta, com mediana de 12 palavras, 17 tokens BERT e 1 sentença por documento.
+
 ![Boxplot de POS Tagging por documento](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_127_1.png)
+
+O gráfico compara a distribuição das classes gramaticais por documento. As classes mais presentes são `PROPN`, `NOUN` e `ADP`, o que faz sentido para títulos de notícias, pois eles concentram nomes próprios, substantivos e preposições.
 
 ![Distribuição de POS Tagging por documento](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_129_0.png)
 
+Este gráfico mostra a frequência total das classes POS no corpus. A predominância de `PROPN`, `NOUN`, `ADP` e `VERB` é coerente com um corpus formado por títulos jornalísticos institucionais.
+
 ![Boxplot de NER por documento](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_134_0.png)
 
+O boxplot de NER apresenta a quantidade de entidades por classe em cada documento. As classes `LOC` e `ORG` aparecem com mais frequência, resultado esperado para notícias do GovBR que citam órgãos, localidades, operações e instituições.
+
 ![Distribuição de NER por documento](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_136_0.png)
+
+Este gráfico sintetiza a distribuição das entidades nomeadas. A classe `LOC` foi a mais frequente, seguida de `ORG`, `MISC` e `PER`; isso mostra que o corpus contém mais referências geográficas e institucionais do que nomes de pessoas.
 
 ### Por sentença
 
 ![Boxplot das estatísticas gerais por sentença](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_144_0.png)
 
+O gráfico apresenta as estatísticas no nível das sentenças. Como os documentos são títulos curtos, as sentenças também têm distribuição concentrada: média de 10,80 palavras e 15,16 tokens BERT por sentença.
+
 ![Boxplot de POS Tagging por sentença](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_148_0.png)
+
+Este boxplot mostra como as classes POS se distribuem por sentença. `PROPN`, `NOUN` e `ADP` continuam concentrando os maiores valores, confirmando o padrão observado na análise por documento.
 
 ![Distribuição de POS Tagging por sentença](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_150_2.png)
 
+O gráfico agrega as ocorrências de POS nas sentenças. Ele reforça que a estrutura linguística dos títulos é formada principalmente por nomes próprios, substantivos, preposições e verbos.
+
 ![Gráfico POS por sentença - ADP](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_153_2.png)
+
+Este gráfico detalha a ocorrência de `ADP` por sentença. A frequência de preposições é compatível com títulos que conectam órgãos, ações, locais e complementos, como em expressões do tipo "de", "em" e "para".
 
 ![Gráfico POS por sentença - PROPN](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_154_2.png)
 
+O gráfico de `PROPN` destaca a presença de nomes próprios nas sentenças. Esse resultado é esperado em notícias governamentais, que mencionam instituições, programas, operações e localidades específicas.
+
 ![Gráfico POS por sentença - NOUN](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_155_2.png)
+
+A distribuição de `NOUN` mostra a frequência de substantivos comuns. Essa classe é importante no corpus porque os títulos descrevem ações, objetos de investigação, políticas públicas e temas administrativos.
 
 ![Gráfico POS por sentença - VERB](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_156_2.png)
 
+O gráfico de `VERB` indica que a maioria das sentenças contém poucos verbos, geralmente um ou dois. Isso é coerente com títulos jornalísticos, que costumam expressar uma ação principal de forma direta.
+
 ![Gráfico POS por sentença - ADJ](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_157_2.png)
+
+O gráfico de `ADJ` mostra menor frequência de adjetivos em comparação com substantivos e nomes próprios. O resultado combina com o estilo informativo dos títulos, que tende a priorizar fatos e entidades.
 
 ![Gráfico POS por sentença - NUM](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_158_2.png)
 
+O gráfico de `NUM` evidencia ocorrências numéricas em parte das sentenças. Isso aparece em títulos com datas, valores, números de operações, planos, edições ou quantidades.
+
 ![Boxplot de NER por sentença](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_162_0.png)
+
+O boxplot de NER por sentença mostra que cada sentença normalmente possui poucas entidades, com mediana de 2 entidades. Isso é compatível com sentenças curtas oriundas de títulos.
 
 ![Distribuição de NER por sentença](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_164_2.png)
 
+Este gráfico mostra a frequência das classes NER nas sentenças. `LOC` e `ORG` seguem como as classes mais relevantes, indicando presença forte de lugares e organizações.
+
 ![Gráfico NER por sentença - LOC](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_167_2.png)
+
+O gráfico de `LOC` detalha as entidades de localização por sentença. A concentração dessa classe é coerente com notícias que citam estados, cidades, países, órgãos tratados pelo modelo como localização e áreas de atuação.
 
 ![Gráfico NER por sentença - ORG](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_168_2.png)
 
+O gráfico de `ORG` mostra a distribuição de organizações por sentença. A presença de órgãos como PF e CGU explica a frequência dessa classe no corpus.
+
 ![Gráfico NER por sentença - MISC](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_169_2.png)
+
+O gráfico de `MISC` reúne entidades diversas que não se encaixam diretamente como pessoa, organização ou localização. Essa classe aparece em nomes de operações, programas e expressões institucionais.
 
 ### Distribuições por documento
 
 ![Quantidade de documentos por quantidade de sentenças](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_183_2.png)
 
+Este gráfico confirma que a maioria dos documentos possui apenas uma sentença. Isso faz sentido porque o corpus processado utiliza títulos de notícias, que normalmente são textos curtos.
+
 ![Quantidade de documentos por quantidade de palavras](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_185_2.png)
+
+O gráfico mostra a distribuição dos documentos pela quantidade de palavras. A maior concentração fica em documentos curtos, com mediana de 12 palavras.
 
 ![Quantidade de documentos por quantidade de tokens](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_187_2.png)
 
+Este gráfico mostra a distribuição por tokens BERT. A mediana de 17 tokens e o máximo de 40 no dataset processado indicam que os documentos estão muito abaixo do limite de 512 tokens.
+
 ![Quantidade de documentos por quantidade de palavras sem stopwords](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_189_2.png)
+
+O gráfico mostra a quantidade de palavras restantes após a remoção de stopwords. A redução em relação ao total de palavras é esperada, pois títulos em português contêm preposições e artigos frequentes.
 
 ![Quantidade de documentos por quantidade de locuções verbais](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_191_2.png)
 
+Este gráfico apresenta a distribuição de locuções verbais por documento. Como os textos são títulos, a maior parte tem poucas locuções verbais.
+
 ![Quantidade de documentos por quantidade de verbos](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_193_2.png)
+
+O gráfico mostra a quantidade de verbos por documento. A concentração em poucos verbos confirma que os títulos descrevem uma ação principal, como "apura", "deflagra", "apoia" ou "inicia".
 
 ![Quantidade de documentos por quantidade de verbos e auxiliares](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_195_2.png)
 
+Este gráfico soma verbos principais e auxiliares. A distribuição é próxima à de verbos porque os títulos do corpus usam poucos auxiliares.
+
 ![Quantidade de documentos por quantidade de substantivos](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_197_2.png)
+
+O gráfico mostra a quantidade de substantivos por documento. A média de 2,76 substantivos por documento é coerente com títulos que nomeiam objetos, ações, instituições e temas.
 
 ![Quantidade de documentos por quantidade de auxiliares e substantivos](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_199_2.png)
 
+Este gráfico combina verbos auxiliares e substantivos. A distribuição acompanha principalmente os substantivos, pois auxiliares aparecem pouco no corpus.
+
 ![Quantidade de documentos por quantidade de entidades reconhecidas](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_201_2.png)
+
+O gráfico mostra quantas entidades foram reconhecidas por documento. A mediana de 2 entidades por documento é adequada para títulos curtos que geralmente citam pelo menos uma instituição, localidade ou operação.
 
 ![Distribuição do comprimento dos documentos tokenizados](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_204_0.png)
 
+Este gráfico apresenta o comprimento dos documentos após a tokenização. Ele confirma que a base está dentro do limite exigido, sem documentos longos.
+
 ![Histograma do comprimento dos documentos tokenizados](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_205_0.png)
+
+O histograma reforça a concentração dos documentos em faixas baixas de tokens. Esse padrão é esperado porque a análise foi feita sobre títulos de notícias.
 
 ### Distribuições por sentença
 
 ![Quantidade de sentenças por quantidade de palavras](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_208_2.png)
 
+Este gráfico mostra a distribuição das sentenças por quantidade de palavras. A maior parte das sentenças tem tamanho curto ou intermediário, com média de 10,80 palavras.
+
 ![Quantidade de sentenças por quantidade de tokens](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_210_2.png)
+
+O gráfico apresenta a quantidade de tokens BERT por sentença. A distribuição acompanha a de palavras, mas com valores um pouco maiores por causa da tokenização subword do BERT.
 
 ![Quantidade de sentenças por quantidade de palavras sem stopwords](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_212_2.png)
 
+Este gráfico mostra a distribuição após remoção de stopwords. A redução do número de palavras evidencia a presença de termos funcionais comuns em português.
+
 ![Quantidade de sentenças por quantidade de locuções verbais](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_214_2.png)
+
+O gráfico indica que as sentenças possuem poucas locuções verbais. Isso é compatível com títulos que tendem a ser sintaticamente enxutos.
 
 ![Quantidade de sentenças por quantidade de verbos](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_216_2.png)
 
+Este gráfico mostra a quantidade de verbos por sentença. A concentração em um ou dois verbos confirma o caráter objetivo das sentenças analisadas.
+
 ![Quantidade de sentenças por quantidade de verbos e auxiliares](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_218_2.png)
+
+O gráfico soma verbos e auxiliares por sentença. O comportamento permanece próximo ao gráfico de verbos, indicando baixa incidência de auxiliares.
 
 ![Quantidade de sentenças por quantidade de substantivos](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_220_2.png)
 
+Este gráfico evidencia a distribuição de substantivos por sentença. A classe aparece com frequência relevante porque os títulos nomeiam temas, ações, instituições e objetos de notícia.
+
 ![Quantidade de sentenças por quantidade de auxiliares e substantivos](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_222_2.png)
 
+O gráfico combina auxiliares e substantivos por sentença. Como há poucos auxiliares, o padrão observado é explicado majoritariamente pela presença de substantivos.
+
 ![Quantidade de sentenças por quantidade de entidades](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_224_2.png)
+
+Este gráfico mostra a quantidade de entidades por sentença. A concentração em poucas entidades por sentença é esperada para títulos curtos, mas a presença recorrente de entidades confirma que o corpus é adequado para análise de NER.
+
+## Conferência dos requisitos
+
+| Requisito do enunciado | Situação no relatório |
+|---|---|
+| Escolher texto de dataset ou corpus com pelo menos 30 documentos | Atendido: dataset de notícias GovBR com 500 documentos processados. |
+| `documentos.csv` com colunas `id` e `documento` separadas por `;` | Atendido: arquivo `data/documentos.csv` possui exatamente essas duas colunas. |
+| `id` inteiro | Atendido: IDs inteiros únicos de 1 a 500. |
+| `documento` string com uma ou mais sentenças | Atendido: não há documentos vazios; após segmentação foram geradas 567 sentenças. |
+| Documento com até 512 tokens | Atendido: maior documento verificado com 42 tokens BERT incluindo tokens especiais; no notebook de análise, o máximo observado foi 40 tokens. |
+| Executar `1_1`, `1_2`, `1_3` e `2_1` | Atendido: notebooks executados em ordem no `.venv`. |
+| Descrição do texto utilizado | Atendido na seção "Descrição do texto utilizado". |
+| Exemplo de POS Tagging | Atendido na seção "Exemplo de POS Tagging". |
+| Exemplo de NER | Atendido na seção "Exemplo de NER". |
+| Gráficos e tabelas gerados pelos notebooks | Atendido: tabelas resumidas no relatório, export completo em `relatorio_ad1_export/2_1_AnaliseDados_v1.md` e 40 gráficos linkados. |
+| Link do GitHub com repositório pessoal | Atendido: link informado no início do relatório. |
+| Estrutura semelhante ao repositório SRI, sem pasta `SRI` interna | Atendido: notebooks na raiz e arquivos gerados na pasta `data/`. |
+
+## Observações finais
+
+A estrutura do repositório segue o formato solicitado: notebooks na raiz e a pasta `data/` com os arquivos gerados. Não há uma pasta `SRI` dentro do repositório.
