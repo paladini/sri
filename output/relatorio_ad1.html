@@ -118,15 +118,14 @@ Distância 1 - Tópicos Especiais</h1>
 <p>Link do repositório pessoal no GitHub: <a href="https://github.com/paladini/sri">https://github.com/paladini/sri</a></p>
 <p>Pasta de saída com o relatório e artefatos gerados: <a href="./"><code>output/</code></a></p>
 <h2 id="execução-dos-notebooks">Execução dos notebooks</h2>
-<p>Antes da sequência principal da avaliação, foi criado o notebook
-<code>0_0_PrepararDocumentosCSV_trainjson_v1.ipynb</code>. Esse notebook
-adapta o dataset escolhido para o formato de entrada esperado pelos
-notebooks disponibilizados pelo professor, gerando o arquivo
+<p>Antes da execução dos Notebooks principais, foi criado e executado o
+notebook <code>0_0_PrepararDocumentosCSV_trainjson_v1.ipynb</code>. Esse
+notebook adapta o dataset escolhido para o formato de entrada esperado
+pelos notebooks disponibilizados pelo professor, gerando o arquivo
 <code>data/documentos.csv</code> com as colunas <code>id</code> e
 <code>documento</code>.</p>
 <p>Os notebooks disponibilizados pelo professor foram executados em
-24/05/2026, a partir do ambiente virtual <code>.venv</code>, na ordem
-solicitada:</p>
+24/05/2026 na ordem solicitada:</p>
 <ol type="1">
 <li><code>1_1_Segmentacao_Limpeza_v1.ipynb</code></li>
 <li><code>1_2_GerarPOS_v1.ipynb</code></li>
@@ -1010,84 +1009,5 @@ entidades</figcaption>
 concentração em poucas entidades por sentença é esperada para títulos
 curtos, mas a presença recorrente de entidades confirma que o corpus é
 adequado para análise de NER.</p>
-<h2 id="conferência-dos-requisitos">Conferência dos requisitos</h2>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr>
-<th>Requisito do enunciado</th>
-<th>Situação no relatório</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Escolher texto de dataset ou corpus com pelo menos 30
-documentos</td>
-<td>Atendido: dataset de notícias GovBR com 500 documentos
-processados.</td>
-</tr>
-<tr>
-<td><code>documentos.csv</code> com colunas <code>id</code> e
-<code>documento</code> separadas por <code>;</code></td>
-<td>Atendido: arquivo <code>data/documentos.csv</code> possui exatamente
-essas duas colunas.</td>
-</tr>
-<tr>
-<td><code>id</code> inteiro</td>
-<td>Atendido: IDs inteiros únicos de 1 a 500.</td>
-</tr>
-<tr>
-<td><code>documento</code> string com uma ou mais sentenças</td>
-<td>Atendido: não há documentos vazios; após segmentação foram geradas
-567 sentenças.</td>
-</tr>
-<tr>
-<td>Documento com até 512 tokens</td>
-<td>Atendido: maior documento verificado com 42 tokens BERT incluindo
-tokens especiais; no notebook de análise, o máximo observado foi 40
-tokens.</td>
-</tr>
-<tr>
-<td>Executar <code>1_1</code>, <code>1_2</code>, <code>1_3</code> e
-<code>2_1</code></td>
-<td>Atendido: notebooks executados em ordem no <code>.venv</code>.</td>
-</tr>
-<tr>
-<td>Descrição do texto utilizado</td>
-<td>Atendido na seção “Descrição do texto utilizado”.</td>
-</tr>
-<tr>
-<td>Exemplo de POS Tagging</td>
-<td>Atendido na seção “Exemplo de POS Tagging”.</td>
-</tr>
-<tr>
-<td>Exemplo de NER</td>
-<td>Atendido na seção “Exemplo de NER”.</td>
-</tr>
-<tr>
-<td>Gráficos e tabelas gerados pelos notebooks</td>
-<td>Atendido: tabelas resumidas no relatório, export completo em
-<code>relatorio_ad1_export/2_1_AnaliseDados_v1.md</code> e 40 gráficos
-linkados.</td>
-</tr>
-<tr>
-<td>Link do GitHub com repositório pessoal</td>
-<td>Atendido: link informado no início do relatório.</td>
-</tr>
-<tr>
-<td>Estrutura semelhante ao repositório SRI, sem pasta <code>SRI</code>
-interna</td>
-<td>Atendido: notebooks na raiz e arquivos gerados na pasta
-<code>data/</code>.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="observações-finais">Observações finais</h2>
-<p>A estrutura do repositório segue o formato solicitado: notebooks na
-raiz e a pasta <code>data/</code> com os arquivos gerados. Não há uma
-pasta <code>SRI</code> dentro do repositório.</p>
 </body>
 </html>

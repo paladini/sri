@@ -10,9 +10,9 @@ Pasta de saída com o relatório e artefatos gerados: [`output/`](./)
 
 ## Execução dos notebooks
 
-Antes da sequência principal da avaliação, foi criado o notebook `0_0_PrepararDocumentosCSV_trainjson_v1.ipynb`. Esse notebook adapta o dataset escolhido para o formato de entrada esperado pelos notebooks disponibilizados pelo professor, gerando o arquivo `data/documentos.csv` com as colunas `id` e `documento`.
+Antes da execução dos Notebooks principais, foi criado e executado o notebook `0_0_PrepararDocumentosCSV_trainjson_v1.ipynb`. Esse notebook adapta o dataset escolhido para o formato de entrada esperado pelos notebooks disponibilizados pelo professor, gerando o arquivo `data/documentos.csv` com as colunas `id` e `documento`.
 
-Os notebooks disponibilizados pelo professor foram executados em 24/05/2026, a partir do ambiente virtual `.venv`, na ordem solicitada:
+Os notebooks disponibilizados pelo professor foram executados em 24/05/2026 na ordem solicitada:
 
 1. `1_1_Segmentacao_Limpeza_v1.ipynb`
 2. `1_2_GerarPOS_v1.ipynb`
@@ -319,24 +319,3 @@ O gráfico combina auxiliares e substantivos por sentença. Como há poucos auxi
 ![Quantidade de sentenças por quantidade de entidades](relatorio_ad1_export/2_1_AnaliseDados_v1_files/2_1_AnaliseDados_v1_224_2.png)
 
 Este gráfico mostra a quantidade de entidades por sentença. A concentração em poucas entidades por sentença é esperada para títulos curtos, mas a presença recorrente de entidades confirma que o corpus é adequado para análise de NER.
-
-## Conferência dos requisitos
-
-| Requisito do enunciado | Situação no relatório |
-|---|---|
-| Escolher texto de dataset ou corpus com pelo menos 30 documentos | Atendido: dataset de notícias GovBR com 500 documentos processados. |
-| `documentos.csv` com colunas `id` e `documento` separadas por `;` | Atendido: arquivo `data/documentos.csv` possui exatamente essas duas colunas. |
-| `id` inteiro | Atendido: IDs inteiros únicos de 1 a 500. |
-| `documento` string com uma ou mais sentenças | Atendido: não há documentos vazios; após segmentação foram geradas 567 sentenças. |
-| Documento com até 512 tokens | Atendido: maior documento verificado com 42 tokens BERT incluindo tokens especiais; no notebook de análise, o máximo observado foi 40 tokens. |
-| Executar `1_1`, `1_2`, `1_3` e `2_1` | Atendido: notebooks executados em ordem no `.venv`. |
-| Descrição do texto utilizado | Atendido na seção "Descrição do texto utilizado". |
-| Exemplo de POS Tagging | Atendido na seção "Exemplo de POS Tagging". |
-| Exemplo de NER | Atendido na seção "Exemplo de NER". |
-| Gráficos e tabelas gerados pelos notebooks | Atendido: tabelas resumidas no relatório, export completo em `relatorio_ad1_export/2_1_AnaliseDados_v1.md` e 40 gráficos linkados. |
-| Link do GitHub com repositório pessoal | Atendido: link informado no início do relatório. |
-| Estrutura semelhante ao repositório SRI, sem pasta `SRI` interna | Atendido: notebooks na raiz e arquivos gerados na pasta `data/`. |
-
-## Observações finais
-
-A estrutura do repositório segue o formato solicitado: notebooks na raiz e a pasta `data/` com os arquivos gerados. Não há uma pasta `SRI` dentro do repositório.
