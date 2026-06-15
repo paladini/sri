@@ -1,1 +1,12 @@
 data/train.json
+
+# Local report generation artifacts
+tools/gerar_relatorio_ad2.py
+tools/capturar_projector_ad2.py
+output/ad2_figures/
+output/ad2_screenshots/
+output/tensorboard/
+output/relatorio_ad1.css
+output/relatorio_ad1.html
+output/relatorio_ad1_export/
+.local-report-backup-*/
