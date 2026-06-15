@@ -1,0 +1,5 @@
+embeddings {
+  tensor_name: "Tokens - BERTimbau pooling"
+  tensor_path: "records.tsv"
+  metadata_path: "metadata.tsv"
+}

@@ -4,6 +4,10 @@ from pathlib import Path
 import textwrap
 
 import matplotlib.font_manager as fm
+import matplotlib
+
+matplotlib.use("Agg")
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -313,6 +317,10 @@ Os notebooks executados foram:
 - Tokens e documento: https://projector.tensorflow.org/?config={RAW_BASE}/config_token_documento.json
 - Sentença e documento: https://projector.tensorflow.org/?config={RAW_BASE}/config_sentenca_documento.json
 
+## Leitura das projeções
+
+As projeções foram reduzidas para duas dimensões com PCA apenas para visualização, então elas não mostram toda a informação dos embeddings originais de 768 dimensões. Mesmo assim, os gráficos ajudam a observar a distribuição dos documentos, tokens e sentenças do corpus GovBR. Em todos os casos eu destaquei o mesmo documento de referência, usando o token `Brasil` e a primeira sentença/documento, para facilitar a comparação entre as quatro projeções pedidas.
+
 ## Projeções
 
 ### Documento
@@ -487,6 +495,15 @@ def create_pdf(context: dict[str, Path | str]) -> None:
         Paragraph(f"Tokens: https://projector.tensorflow.org/?config={RAW_BASE}/config_token.json", styles["SmallPT"]),
         Paragraph(f"Tokens e documento: https://projector.tensorflow.org/?config={RAW_BASE}/config_token_documento.json", styles["SmallPT"]),
         Paragraph(f"Sentença e documento: https://projector.tensorflow.org/?config={RAW_BASE}/config_sentenca_documento.json", styles["SmallPT"]),
+        Paragraph("Leitura das projeções", styles["HeadingPT"]),
+        Paragraph(
+            "As projeções foram reduzidas para duas dimensões com PCA apenas para visualização, então elas não mostram "
+            "toda a informação dos embeddings originais de 768 dimensões. Mesmo assim, os gráficos ajudam a observar "
+            "a distribuição dos documentos, tokens e sentenças do corpus GovBR. Em todos os casos eu destaquei o mesmo "
+            "documento de referência, usando o token <i>Brasil</i> e a primeira sentença/documento, para facilitar a "
+            "comparação entre as quatro projeções pedidas.",
+            styles["BodyPT"],
+        ),
         PageBreak(),
     ]
 

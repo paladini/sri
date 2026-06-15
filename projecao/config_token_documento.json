@@ -1,7 +1,7 @@
 {
   "embeddings": [
     {
-      "tensorName": "Pooling ?ltima camada - tokens e documentos GovBR",
+      "tensorName": "Pooling última camada - tokens e documentos GovBR",
       "tensorShape": [
         6623,
         768
