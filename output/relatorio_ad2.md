@@ -27,7 +27,7 @@ Foi reutilizado o texto analisado na Avaliação a Distância 1: o dataset de no
 
 Considerando a observação recebida na AD1, mantive o mesmo corpus para preservar a continuidade exigida na AD2, mas registro que documentos com mais de uma sentença tendem a oferecer mais contexto semântico para análises futuras.
 
-Os quatro notebooks solicitados foram executados localmente e geraram os arquivos na pasta `projecao/`.
+Os quatro notebooks solicitados foram executados e geraram os arquivos na pasta `projecao/`.
 
 ## Arquivos gerados
 
