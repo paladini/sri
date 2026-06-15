@@ -53,17 +53,23 @@ As imagens abaixo são printscreens do TensorBoard Embedding Projector usando PC
 
 Documento projetado: `Brasil inicia construção do 5 Plano de Ação Nacional de Governo Aberto`
 
+O print mostra os 500 documentos do corpus GovBR projetados por PCA a partir dos embeddings BERTimbau. A busca por `Brasil` seleciona 14 documentos que contêm esse termo; eles aparecem destacados em vermelho e com rótulos visíveis no gráfico. O documento de referência, `Brasil inicia construção do 5 Plano de Ação Nacional de Governo Aberto`, fica próximo de outros títulos sobre ações da CGU, Polícia Federal e governo federal, indicando agrupamento semântico por tema institucional.
+
 ![Printscreen da projeção de documento](ad2_screenshots/projector_documento.png)
 
 ### Tokens
 
 Token projetado: `Brasil`, no documento 1.
 
+O print mostra 6.123 embeddings de tokens. A projeção está configurada com `Color by: POS-Tag`, permitindo organizar os tokens por classe morfossintática, enquanto a busca por `Brasil` destaca as ocorrências do token e variações como `Brasileiro`, `Brasileiras` e `brasileira`. O token escolhido pertence ao documento 1 e aparece em uma região compartilhada por termos de mesma família lexical.
+
 ![Printscreen da projeção de tokens](ad2_screenshots/projector_token.png)
 
 ### Tokens e documento
 
 Token e documento projetados: `Brasil` e documento 1.
+
+O print combina tokens e documentos no mesmo espaço vetorial, totalizando 6.623 pontos. A opção `Color by: Granularidade` diferencia os tipos de ponto disponíveis na projeção, e a busca por `Brasil` evidencia tokens relacionados ao termo pesquisado. Essa visualização permite comparar a posição do token `Brasil` com documentos do corpus que tratam de assuntos próximos.
 
 ![Printscreen da projeção de tokens e documento](ad2_screenshots/projector_token_documento.png)
 
@@ -72,5 +78,7 @@ Token e documento projetados: `Brasil` e documento 1.
 Sentença projetada: `Brasil inicia construção do 5 Plano de Ação Nacional de Governo Aberto`
 
 Documento projetado: `Brasil inicia construção do 5 Plano de Ação Nacional de Governo Aberto`
+
+O print combina sentenças e documentos em uma projeção com 1.067 pontos. A opção `Color by: Granularidade` separa sentenças e documentos, enquanto a busca por `Brasil` seleciona sentenças/documentos relacionados ao termo. A sentença/documento de referência aparece junto de outros títulos governamentais, permitindo observar a proximidade semântica entre unidades textuais de níveis diferentes.
 
 ![Printscreen da projeção de sentença e documento](ad2_screenshots/projector_sentenca_documento.png)
