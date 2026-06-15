@@ -1,7 +1,7 @@
 {
   "embeddings": [
     {
-      "tensorName": "Pooling ?ltima camada - senten?as e documentos GovBR",
+      "tensorName": "Pooling última camada - sentenças e documentos GovBR",
       "tensorShape": [
         1067,
         768
@@ -10,5 +10,5 @@
       "metadataPath": "https://raw.githubusercontent.com/paladini/sri/main/projecao/sentenca_documento/DOALL_meta_sentenca_documento_768_base.tsv"
     }
   ],
-  "modelCheckpointPath": "<b>Embeddings de senten?as e documentos - GovBR</b>"
+  "modelCheckpointPath": "<b>Embeddings de sentenças e documentos - GovBR</b>"
 }
