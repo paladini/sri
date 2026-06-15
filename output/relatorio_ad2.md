@@ -25,8 +25,6 @@ Os notebooks estão na raiz do repositório e os arquivos gerados foram organiza
 
 Foi reutilizado o texto analisado na Avaliação a Distância 1: o dataset de notícias GovBR `divergente/noticias-govbr-ptbr-1`, adaptado para `data/documentos.csv` com 500 documentos curtos em português. Esse corpus é diferente do CSTNews usado nos notebooks de exemplo do professor.
 
-Considerando a observação recebida na AD1, mantive o mesmo corpus para preservar a continuidade exigida na AD2, mas registro que documentos com mais de uma sentença tendem a oferecer mais contexto semântico para análises futuras.
-
 Os quatro notebooks solicitados foram executados e geraram os arquivos na pasta `projecao/`.
 
 ## Arquivos gerados
