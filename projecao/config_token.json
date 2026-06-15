@@ -1,18 +1,14 @@
 {
-  "embeddings": [    	
-	{
-      "tensorName": "Pooling última camada",
-      "tensorShape": [2078, 768],
-      "tensorPath": "https://raw.githubusercontent.com/osmarbraz/sri/main/projecao/token/DOALL_records_token_768_base_POOL.tsv",
-      "metadataPath": "https://raw.githubusercontent.com/osmarbraz/sri/main/projecao/token/DOALL_meta_token_768_base_POOL.tsv"
-    },
-	{
-      "tensorName": "Pooling última camada com next",
-      "tensorShape": [2078, 768],
-      "tensorPath": "https://raw.githubusercontent.com/osmarbraz/sri/main/projecao/token/DOALL_records_token_768_base_POOL_next.tsv",
-      "metadataPath": "https://raw.githubusercontent.com/osmarbraz/sri/main/projecao/token/DOALL_meta_token_768_base_POOL_next.tsv"
+  "embeddings": [
+    {
+      "tensorName": "Pooling ?ltima camada - tokens GovBR",
+      "tensorShape": [
+        6123,
+        768
+      ],
+      "tensorPath": "https://raw.githubusercontent.com/paladini/sri/main/projecao/token/DOALL_records_token_768_base_POOL.tsv",
+      "metadataPath": "https://raw.githubusercontent.com/paladini/sri/main/projecao/token/DOALL_meta_token_768_base_POOL.tsv"
     }
   ],
-  "modelCheckpointPath": "<b>Embeddings de tokens"
+  "modelCheckpointPath": "<b>Embeddings de tokens - GovBR</b>"
 }
-
