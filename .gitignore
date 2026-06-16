@@ -1,5 +1,12 @@
 data/train.json
 
+# Python/local execution artifacts
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+tmp/
+
 # Local report generation artifacts
 tools/gerar_relatorio_ad2.py
 tools/capturar_projector_ad2.py
